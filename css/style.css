@@ -1,0 +1,50 @@
+:root {
+    --primary-color: #4facfe; --bg-body: #f8f9fa; --bg-card: #ffffff;
+    --text-main: #212529; --border-color: #dee2e6;
+}
+
+[data-theme="dark"] {
+    --bg-body: #121212; --bg-card: #1e1e1e;
+    --text-main: #e0e0e0; --border-color: #333333;
+}
+
+body { background-color: var(--bg-body) !important; color: var(--text-main); transition: 0.3s; }
+
+/* Preloader */
+#preloader {
+    position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white;
+    display: flex; justify-content: center; align-items: center; z-index: 9999; transition: 0.5s;
+}
+#preloader.fade-out { opacity: 0; visibility: hidden; }
+
+/* Stats & Cards */
+.stat-box, .card, .bg-white { background-color: var(--bg-card) !important; color: var(--text-main) !important; border-radius: 15px; }
+.stat-number { font-size: 2.5rem; font-weight: 800; color: var(--primary-color); display: block; }
+.custom-card { border: none; overflow: hidden; transition: 0.4s; }
+.custom-card:hover { transform: translateY(-10px); }
+
+/* Parallax */
+.parallax-section {
+    background-image: url('https://picsum.photos/id/190/1920/600');
+    height: 400px; background-attachment: fixed; background-size: cover; display: flex; align-items: center;
+}
+.parallax-overlay { background: rgba(0,0,0,0.5); width: 100%; height: 100%; display: flex; justify-content: center; align-items: center; color: white; }
+
+/* Tab Animation (Slide from right) */
+.tab-pane.fade { transform: translateX(30px); transition: 0.5s; opacity: 0; display: block; height: 0; overflow: hidden; }
+.tab-pane.fade.show.active { transform: translateX(0); opacity: 1; height: auto; }
+
+/* Theme Switch */
+.theme-switch { position: relative; width: 50px; height: 26px; }
+.theme-switch input { display: none; }
+.slider { background: #ccc; border-radius: 34px; position: absolute; top: 0; left: 0; right: 0; bottom: 0; transition: 0.4s; cursor: pointer; }
+.slider:before { content: ""; position: absolute; height: 18px; width: 18px; left: 4px; bottom: 4px; background: white; transition: 0.4s; border-radius: 50%; }
+input:checked + .slider { background: var(--primary-color); }
+input:checked + .slider:before { transform: translateX(24px); }
+
+/* Footer & Chat */
+.social-icon { color: white; font-size: 20px; margin: 0 10px; transition: 0.3s; text-decoration: none; }
+.social-icon:hover { color: var(--primary-color); transform: translateY(-5px); }
+#chatbot-wrapper { position: fixed; bottom: 20px; right: 20px; z-index: 1000; }
+#chatbot-toggle { width: 55px; height: 55px; border-radius: 50%; background: var(--primary-color); border: none; color: white; }
+#chatbot-window { position: absolute; bottom: 70px; right: 0; width: 280px; background: var(--bg-card); display: none; flex-direction: column; border-radius: 15px; overflow: hidden; }
